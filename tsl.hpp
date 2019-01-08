@@ -395,8 +395,8 @@ namespace tsl {
 		if(    !readPhaseSymmetry  ) throw std::runtime_error("ang missing symmetry for phase "          + ss.str());
 		if(    !readPhaseLattice   ) throw std::runtime_error("ang missing lattice constants for phase " + ss.str());
 		if(    !readPhaseHkl       ) throw std::runtime_error("ang missing hkl families for phase "      + ss.str());
-		// if(6 != phaseElasticCount  ) throw std::runtime_error("ang missing elastic constants for phase " + ss.str());
-		// if(    !readPhaseCategories) throw std::runtime_error("ang missing categories for phase "        + ss.str());
+		if(6 != phaseElasticCount  ) throw std::runtime_error("ang missing elastic constants for phase " + ss.str());
+		if(    !readPhaseCategories) throw std::runtime_error("ang missing categories for phase "        + ss.str());
 		if(    !phaseList.empty()  ) {
 			if(targetFamilies < phaseList.back().hklFam.size())
 				throw std::runtime_error("ang missing some hkl families for phase " + ss.str());
