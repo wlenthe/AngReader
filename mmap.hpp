@@ -245,7 +245,7 @@ namespace memorymap {
 					}
 					if(!error) {//did we get/update the file size without issue?
 						fileBuffer = MMAP(NULL, fileBytes, PROT_READ | (canWrite ? PROT_WRITE : 0), MAP_SHARED, fileId, 0);//create the memory map with appropriate access
-						if(MAP_FAILED != fileBuffer) madvise(fileBuffer, fileBytes, (int)hint | MADV_WILLNEED);//give the os our access hint if the map was successful
+						if(MAP_FAILED != fileBuffer) madvise(fileBuffer, fileBytes, (int)hint);//give the os our access hint if the map was successful
 					}
 				}
 			}
